@@ -18,6 +18,11 @@ public class FeedItem extends BaseEntity {
     public FeedItem() {
     }
 
+    public FeedItem(String url, String title) {
+        this.url = url;
+        this.title = title;
+    }
+
     public FeedItem(String url, String title, String description, String imageUrl) {
         this.url = url;
         this.title = title;

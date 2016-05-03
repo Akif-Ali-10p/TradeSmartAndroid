@@ -30,7 +30,7 @@ public class FeedActivityView extends BaseView {
         recyclerView.setLayoutManager(new LinearLayoutManager(controller.getBaseActivity()));
     }
 
-    public void setRepositoryList(ArrayList<FeedItem> repositoryList) {
+    public void setFeedList(ArrayList<FeedItem> repositoryList) {
         recyclerView.setAdapter(new RSSAdapter(getBaseActivity(), repositoryList));
     }
 

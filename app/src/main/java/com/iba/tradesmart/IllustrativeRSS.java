@@ -26,40 +26,35 @@ public class IllustrativeRSS implements Parcelable {
         }
     };
 
-    public static class Item {
-        public String url;
-        public String title;
-        public Item(String url, String title) {
-            this.url = url;
-            this.title = title;
-        }
-    }
-
-    private List<Item> items;
+    private List<FeedItem> items;
 
     public IllustrativeRSS(Parcel parcel) {
-        items = new ArrayList<Item>();
+        items = new ArrayList<FeedItem>();
         int len = parcel.readInt();
         for (int i=0; i<len; i++)
-            items.add(new Item(
+            items.add(new FeedItem(
                     parcel.readString(),
                     parcel.readString()));
     }
 
     public IllustrativeRSS(){
-        items = new ArrayList<Item>();
+        items = new ArrayList<FeedItem>();
     }
 
     public void add(String url, String title) {
-        items.add(new Item(url, title));
+        items.add(new FeedItem(url, title));
     }
 
     public int size() {
         return items.size();
     }
 
-    public Item get(int i){
+    public FeedItem get(int i){
         return items.get(i);
+    }
+
+    public List getList(){
+        return items;
     }
 
     @Override
@@ -70,9 +65,9 @@ public class IllustrativeRSS implements Parcelable {
     @Override
     public void writeToParcel(Parcel dest, int flags) {
         dest.writeInt(items.size());
-        for (Item i : items) {
-            dest.writeString(i.url);
-            dest.writeString(i.title);
+        for (FeedItem i : items) {
+            dest.writeString(i.getUrl());
+            dest.writeString(i.getTitle());
         }
     }
 }

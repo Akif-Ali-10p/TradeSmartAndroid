@@ -16,6 +16,9 @@ import com.tenpearls.android.interfaces.Controller;
 import com.tenpearls.android.service.ServiceFactory;
 import com.tenpearls.android.views.BaseView;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class FeedActivity extends BaseActivity {
 
     private static final String URL = "http://www.skysports.com/rss/0,20514,11661,00.xml";
@@ -64,6 +67,8 @@ public class FeedActivity extends BaseActivity {
 
     private void handleRSS(Intent data) {
         IllustrativeRSS rss = data.getParcelableExtra(DownloadIntentService.RSS_RESULT_EXTRA);
+        List<FeedItem> list = rss.getList();
+        ((FeedActivityView)view).setFeedList((ArrayList<FeedItem>) list);
 //        ViewGroup result = (ViewGroup)findViewById(R.id.results);
 //        result.removeAllViews();
 //        for (int i=0; i<rss.size(); i++) {
