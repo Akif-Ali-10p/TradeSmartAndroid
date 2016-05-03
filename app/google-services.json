@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "59498602079",
+    "project_id": "trade-smart"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:59498602079:android:bfaa57e9c03ef231",
+        "android_client_info": {
+          "package_name": "com.iba.tradesmart"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "59498602079-0evopb2jtnm9p181i5ibtiip19975r42.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.iba.tradesmart",
+            "certificate_hash": "1FCBE6F66DA3E5D57A5B8E26A73056C0745295AF"
+          }
+        },
+        {
+          "client_id": "59498602079-39dmtpmto2so3j96cubhau973rv4cs17.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCb5apqcRLHr-fqVTP4UDZvn1snFt_gfus"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 1
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
