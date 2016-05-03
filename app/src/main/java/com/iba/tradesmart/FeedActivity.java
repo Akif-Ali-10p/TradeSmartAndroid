@@ -16,7 +16,7 @@ public class FeedActivity extends BaseActivity {
 
     @Override
     public BaseView getViewForController(Controller controller) {
-        return null;
+        return new FeedActivityView(controller);
     }
 
     @Override
