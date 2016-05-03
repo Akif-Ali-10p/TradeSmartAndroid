@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    
+    <declare-styleable name="Generic">
+        <attr name="font_path_from_assets" format="reference|string"></attr>
+    </declare-styleable>
+
+</resources>
