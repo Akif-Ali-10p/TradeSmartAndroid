@@ -58,15 +58,15 @@ public class SocialNetworksHelper {
 
     /****FILL THIS WITH YOUR INFORMATION*********/
     //This is the public api key of our application
-    public static final String API_KEY = "75e6k3l06dwmse";
+    public static final String API_KEY = "771v1nvlyeo5pa";
     //This is the private api key of our application
-    public static final String SECRET_KEY = "BENqQAnGHCBwEitB";
+    public static final String SECRET_KEY = "UrRJ8McyOf2hcZgw";
     //This is any string we want to use. This will be used for avoid CSRF attacks. You can generate one here: http://strongpasswordgenerator.com/
     public static final String STATE = "E3ZYKC1T6H2yP4z";
     /*********************************************/
 
     //These are constants used for build the urls
-    public static final String AUTHORIZATION_URL = "https://www.linkedin.com/uas/oauth2/authorization?response_type=code&client_id=75e6k3l06dwmse&state=E3ZYKC1T6H2yP4z&redirect_uri=http%3A%2F%2F10pearls.com";
+    public static final String AUTHORIZATION_URL = "https://www.linkedin.com/uas/oauth2/authorization?response_type=code&client_id=771v1nvlyeo5pa&state=E3ZYKC1T6H2yP4z&redirect_uri=http%3A%2F%2Fiba.edu.pk";
     public static final String ACCESS_TOKEN_URL = "https://www.linkedin.com/uas/oauth2/accessToken";
     public static final String SECRET_KEY_PARAM = "client_secret";
     public static final String RESPONSE_TYPE_PARAM = "response_type";
