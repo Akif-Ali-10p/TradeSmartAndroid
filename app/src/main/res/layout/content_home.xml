@@ -13,7 +13,15 @@
     tools:showIn="@layout/app_bar_home">
 
     <TextView
+        android:id="@+id/mainTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Hello World!" />
+        android:text="Hello World!"/>
+    <Button
+        android:id="@+id/feedbackbtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="RSS View"
+        android:layout_below="@id/mainTextView"/>/>
+    />
 </RelativeLayout>
