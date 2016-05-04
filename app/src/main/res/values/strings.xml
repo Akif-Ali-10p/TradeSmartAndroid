@@ -9,4 +9,8 @@
 
     <string name="facebook_app_id">1224552974223746</string>
 
+    <!-- Application Fonts -->
+    <string name="font_regular">fonts/NexaLight.otf</string>
+    <string name="font_bold">fonts/NexaBold.otf</string>
+
 </resources>

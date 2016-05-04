@@ -1,26 +1,47 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:gravity="center"
-    android:orientation="vertical">
+    android:background="@drawable/bg">
+
+    <include
+        android:id="@+id/toolbar"
+        layout="@layout/layout_toolbar" />
+
+    <com.tenpearls.android.components.ImageView
+        android:id="@+id/imgLogo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/toolbar"
+        android:layout_marginTop="40dp"
+        android:layout_centerHorizontal="true"
+        android:src="@drawable/logo"/>
 
     <com.tenpearls.android.components.ImageView
         android:id="@+id/imgFbLoginButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:src="@drawable/facebookloginselector" />
+        android:layout_marginTop="20dp"
+        android:layout_below="@+id/imgLogo"
+        android:layout_centerHorizontal="true"
+        android:src="@drawable/facebook" />
+
     <com.tenpearls.android.components.ImageView
         android:id="@+id/imgGoogleLoginButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:src="@drawable/googleloginselector"
-        android:layout_marginTop="-10dp"/>
+        android:layout_marginTop="8dp"
+        android:layout_below="@+id/imgFbLoginButton"
+        android:layout_centerHorizontal="true"
+        android:src="@drawable/google"/>
+
     <com.tenpearls.android.components.ImageView
         android:id="@+id/imgLinkedinLoginButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:src="@drawable/linkedinloginselector"
-        android:layout_marginTop="-10dp"/>
+        android:layout_marginTop="8dp"
+        android:layout_below="@+id/imgGoogleLoginButton"
+        android:layout_centerHorizontal="true"
+        android:src="@drawable/linkedin"/>
 
-</LinearLayout>
+</RelativeLayout>

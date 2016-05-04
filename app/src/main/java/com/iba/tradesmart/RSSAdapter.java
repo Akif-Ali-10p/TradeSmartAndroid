@@ -43,7 +43,7 @@ public class RSSAdapter extends RecyclerView.Adapter<RSSAdapter.CustomViewHolder
                 int position = holder.getPosition();
 
                 FeedItem feedItem = feedItemList.get(position);
-                Toast.makeText(mContext, feedItem.getTitle(), Toast.LENGTH_SHORT).show();
+                Toast.makeText(mContext, feedItem.getUrl(), Toast.LENGTH_SHORT).show();
             }
         };
 

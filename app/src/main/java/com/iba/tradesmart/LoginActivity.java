@@ -12,7 +12,6 @@ import com.google.android.gms.auth.api.signin.GoogleSignInResult;
 import com.tenpearls.android.activities.BaseActivity;
 import com.tenpearls.android.interfaces.Controller;
 import com.tenpearls.android.interfaces.ServiceSecondaryEventHandler;
-import com.tenpearls.android.service.*;
 import com.tenpearls.android.views.BaseView;
 
 import java.util.Collections;
@@ -28,6 +27,9 @@ public class LoginActivity extends BaseActivity implements ServiceSecondaryEvent
         super.onCreate(savedInstanceState);
 
         configureGoogleSignIn();
+
+        if(AppConfig.getInstance().isSocialLogin())
+            navigateToHomeActivity();
     }
 
     @Override
@@ -60,7 +62,8 @@ public class LoginActivity extends BaseActivity implements ServiceSecondaryEvent
 
     private void handleGoogleLoginResult(GoogleSignInResult result) {
         if (result.isSuccess()) {
-            navigateToQuizListingActivity();
+            AppConfig.getInstance().setSocialLogin(true);
+            navigateToHomeActivity();
         }else{
             setEnabledSocialLoginView();
         }
@@ -80,7 +83,8 @@ public class LoginActivity extends BaseActivity implements ServiceSecondaryEvent
         callbackManager = SocialNetworksHelper.facebookLoginWithReadPermissions(this, Collections.singletonList("email"), new FacebookCallback<LoginResult>() {
             @Override
             public void onSuccess(LoginResult loginResult) {
-                navigateToQuizListingActivity();
+                AppConfig.getInstance().setSocialLogin(true);
+                navigateToHomeActivity();
             }
 
             @Override
@@ -121,7 +125,8 @@ public class LoginActivity extends BaseActivity implements ServiceSecondaryEvent
                 return true;
             }
 
-            navigateToQuizListingActivity();
+            AppConfig.getInstance().setSocialLogin(true);
+            navigateToHomeActivity();
         }else{
             loadWebView(authorizationUrl);
         }
@@ -139,7 +144,7 @@ public class LoginActivity extends BaseActivity implements ServiceSecondaryEvent
     //endregion
 
     //region Start Next Activity
-    private void navigateToQuizListingActivity(){
+    private void navigateToHomeActivity(){
         Intent quizSelection = new Intent(this, HomeActivity.class);
         startActivity(quizSelection);
         finish();

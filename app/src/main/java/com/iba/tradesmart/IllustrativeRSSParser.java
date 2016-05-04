@@ -41,6 +41,8 @@ public class IllustrativeRSSParser {
         private String el;
         private String url;
         private StringBuilder title = new StringBuilder();
+        private StringBuilder link = new StringBuilder();
+        private RSSFeedItem feedItem;
 
         @Override
         public void startElement(
@@ -49,9 +51,10 @@ public class IllustrativeRSSParser {
         ) throws SAXException {
             if ("item".equals(qName)) {
                 title.setLength(0);
+                link.setLength(0);
                 url = null;
             } else if ("enclosure".equals(qName)) {
-                url = attributes.getValue("url");
+                url = attributes.getValue("link");
             }
             el = localName;
         }
@@ -60,12 +63,14 @@ public class IllustrativeRSSParser {
         public void characters(char[] ch, int start, int length) throws SAXException {
             if ("title".equals(el))
                 title.append(ch,start,length);
+            else if("link".equals(el))
+                link.append(ch,start,length);
         }
 
         @Override
         public void endElement(String uri, String localName, String qName) throws SAXException {
-            if ("item".equals(localName) && url != null) {
-                result.add(url, title.toString());
+            if ("item".equals(localName) /*&& url != null*/) {
+                result.add(link.toString(), title.toString());
             }
         }
     }

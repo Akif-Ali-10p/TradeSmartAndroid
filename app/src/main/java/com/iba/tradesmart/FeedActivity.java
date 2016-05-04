@@ -21,7 +21,8 @@ import java.util.List;
 
 public class FeedActivity extends BaseActivity {
 
-    private static final String URL = "http://www.skysports.com/rss/0,20514,11661,00.xml";
+//    private static final String URL = "http://www.skysports.com/rss/0,20514,11661,00.xml";
+    private static final String URL = "http://investing.einnews.com/rss/PwyIA_E3canlqJM4";
     private static final int RSS_DOWNLOAD_REQUEST_CODE = 0;
 
     @Override
