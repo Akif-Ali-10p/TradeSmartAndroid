@@ -1,4 +1,4 @@
-package com.iba.tradesmart;
+package com.iba.tradesmart.helpers;
 
 /**
  * Created by firdous on 03/05/16.

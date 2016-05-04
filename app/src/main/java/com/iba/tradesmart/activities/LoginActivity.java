@@ -1,4 +1,4 @@
-package com.iba.tradesmart;
+package com.iba.tradesmart.activities;
 
 import android.content.Intent;
 import android.net.Uri;
@@ -9,6 +9,9 @@ import com.facebook.FacebookCallback;
 import com.facebook.FacebookException;
 import com.facebook.login.LoginResult;
 import com.google.android.gms.auth.api.signin.GoogleSignInResult;
+import com.iba.tradesmart.helpers.SocialNetworksHelper;
+import com.iba.tradesmart.config.AppConfig;
+import com.iba.tradesmart.views.LoginActivityView;
 import com.tenpearls.android.activities.BaseActivity;
 import com.tenpearls.android.interfaces.Controller;
 import com.tenpearls.android.interfaces.ServiceSecondaryEventHandler;

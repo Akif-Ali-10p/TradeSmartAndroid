@@ -1,5 +1,7 @@
-package com.iba.tradesmart;
+package com.iba.tradesmart.config;
 
+import com.iba.tradesmart.Application;
+import com.iba.tradesmart.constants.KeyConstants;
 import com.tenpearls.android.utilities.PreferenceUtility;
 
 /**

@@ -1,4 +1,6 @@
-package com.iba.tradesmart;
+package com.iba.tradesmart.services;
+
+import com.iba.tradesmart.constants.ServiceConstants;
 
 import java.util.HashMap;
 

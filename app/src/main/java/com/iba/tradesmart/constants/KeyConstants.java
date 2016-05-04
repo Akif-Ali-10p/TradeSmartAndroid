@@ -1,4 +1,4 @@
-package com.iba.tradesmart;
+package com.iba.tradesmart.constants;
 
 /**
  * Created  on 08/02/2016.

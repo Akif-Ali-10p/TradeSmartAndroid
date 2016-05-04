@@ -7,9 +7,8 @@
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="80dp"
-        android:background="#ffffff"
-        android:layout_marginTop="8dp"
-        android:alpha="0.2">
+        android:background="@drawable/topbar"
+        android:layout_marginTop="2dp">
 
         <com.tenpearls.android.components.TextView
             android:id="@+id/title"
@@ -20,7 +19,8 @@
             android:paddingStart="8dp"
             android:paddingEnd="8dp"
             android:text="dafdafda"
-            android:textColor="#ffffff"
+            android:textColor="@color/white"
+            android:textStyle="bold"
             android:textSize="15sp"
             app:font_path_from_assets="@string/font_regular"/>
 

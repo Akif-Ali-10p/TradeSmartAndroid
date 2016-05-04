@@ -1,10 +1,12 @@
-package com.iba.tradesmart;
+package com.iba.tradesmart.helpers;
 
 /**
  * Created by firdous on 03/05/16.
  */
 import android.os.Parcel;
 import android.os.Parcelable;
+
+import com.iba.tradesmart.entities.FeedItem;
 
 import java.util.ArrayList;
 import java.util.List;

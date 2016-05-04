@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:padding="10dip"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content">
+
+    <TextView
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dip"
+        android:text="Symbols:"
+        android:layout_marginBottom="5dp"/>
+
+    <Spinner
+        android:id="@+id/spinner"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:prompt="@string/spinner_title"/>
+
+    <RadioGroup
+        android:id="@+id/rgTrade"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <RadioButton
+            android:id="@+id/rbBuy"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Buy"/>
+
+        <RadioButton
+            android:id="@+id/rbSell"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Sell"/>
+
+    </RadioGroup>
+
+    <com.tenpearls.android.components.EditText
+        android:id="@+id/etQuantity"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:inputType="number"
+        android:hint="Enter Quantity"/>
+
+    <com.tenpearls.android.components.Button
+        android:id="@+id/btnProceed"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Proceed"/>
+</LinearLayout>

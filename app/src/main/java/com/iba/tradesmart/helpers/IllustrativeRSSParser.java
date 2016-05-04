@@ -1,4 +1,4 @@
-package com.iba.tradesmart;
+package com.iba.tradesmart.helpers;
 
 /**
  * Created by firdous on 03/05/16.
@@ -42,7 +42,6 @@ public class IllustrativeRSSParser {
         private String url;
         private StringBuilder title = new StringBuilder();
         private StringBuilder link = new StringBuilder();
-        private RSSFeedItem feedItem;
 
         @Override
         public void startElement(

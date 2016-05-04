@@ -1,18 +1,15 @@
-package com.iba.tradesmart;
+package com.iba.tradesmart.activities;
 
 import android.app.PendingIntent;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
-import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.Toolbar;
-import android.view.View;
-import android.view.ViewGroup;
 
+import com.iba.tradesmart.helpers.DownloadIntentService;
+import com.iba.tradesmart.views.FeedActivityView;
+import com.iba.tradesmart.entities.FeedItem;
+import com.iba.tradesmart.helpers.IllustrativeRSS;
 import com.tenpearls.android.activities.BaseActivity;
-import com.tenpearls.android.components.TextView;
 import com.tenpearls.android.interfaces.Controller;
 import com.tenpearls.android.service.ServiceFactory;
 import com.tenpearls.android.views.BaseView;

@@ -1,4 +1,4 @@
-package com.iba.tradesmart;
+package com.iba.tradesmart.helpers;
 
 import android.app.Activity;
 import android.content.Context;

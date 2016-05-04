@@ -1,4 +1,4 @@
-package com.iba.tradesmart;
+package com.iba.tradesmart.entities;
 
 import com.google.gson.JsonElement;
 import com.tenpearls.android.entities.BaseEntity;

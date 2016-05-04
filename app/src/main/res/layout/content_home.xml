@@ -9,19 +9,18 @@
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
-    tools:context="com.iba.tradesmart.HomeActivity"
+    tools:context=".activities.HomeActivity"
     tools:showIn="@layout/app_bar_home">
 
-    <TextView
-        android:id="@+id/mainTextView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Hello World!"/>
     <Button
         android:id="@+id/feedbackbtn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="RSS View"
-        android:layout_below="@id/mainTextView"/>/>
-    />
+        android:text="RSS View"/>
+    <Button
+        android:id="@+id/btnTrade"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Make Trade"
+        android:layout_below="@id/feedbackbtn"/>
 </RelativeLayout>

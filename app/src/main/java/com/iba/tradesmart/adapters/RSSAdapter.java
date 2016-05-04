@@ -1,4 +1,4 @@
-package com.iba.tradesmart;
+package com.iba.tradesmart.adapters;
 
 import android.content.Context;
 import android.content.Intent;
@@ -6,9 +6,11 @@ import android.net.Uri;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.ViewGroup;
+
+import com.iba.tradesmart.R;
+import com.iba.tradesmart.entities.FeedItem;
 import com.tenpearls.android.components.TextView;
 import android.view.View;
-import android.widget.Toast;
 
 import java.util.List;
 

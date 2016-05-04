@@ -13,4 +13,6 @@
     <string name="font_regular">fonts/NexaLight.otf</string>
     <string name="font_bold">fonts/NexaBold.otf</string>
 
+    <string name="spinner_title">Symbols</string>
+
 </resources>

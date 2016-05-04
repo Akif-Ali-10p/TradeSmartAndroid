@@ -1,8 +1,11 @@
-package com.iba.tradesmart;
+package com.iba.tradesmart.views;
 
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 
+import com.iba.tradesmart.entities.FeedItem;
+import com.iba.tradesmart.R;
+import com.iba.tradesmart.adapters.RSSAdapter;
 import com.tenpearls.android.interfaces.Controller;
 import com.tenpearls.android.views.BaseView;
 

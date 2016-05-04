@@ -1,4 +1,4 @@
-package com.iba.tradesmart;
+package com.iba.tradesmart.views;
 
 import android.app.Dialog;
 import android.content.DialogInterface;
@@ -7,6 +7,9 @@ import android.view.Window;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
 
+import com.iba.tradesmart.activities.LoginActivity;
+import com.iba.tradesmart.R;
+import com.iba.tradesmart.helpers.SocialNetworksHelper;
 import com.tenpearls.android.components.ImageView;
 import com.tenpearls.android.interfaces.Controller;
 import com.tenpearls.android.views.BaseView;
