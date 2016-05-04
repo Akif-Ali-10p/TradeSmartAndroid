@@ -2,6 +2,7 @@ package com.iba.tradesmart;
 
 import android.app.PendingIntent;
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
@@ -70,14 +71,6 @@ public class FeedActivity extends BaseActivity {
         IllustrativeRSS rss = data.getParcelableExtra(DownloadIntentService.RSS_RESULT_EXTRA);
         List<FeedItem> list = rss.getList();
         ((FeedActivityView)view).setFeedList((ArrayList<FeedItem>) list);
-//        ViewGroup result = (ViewGroup)findViewById(R.id.results);
-//        result.removeAllViews();
-//        for (int i=0; i<rss.size(); i++) {
-//            IllustrativeRSS.Item item = rss.get(i);
-//            TextView v = new TextView(this);
-//            v.setText(item.title);
-//            result.addView(v);
-//        }
     }
 
     private void handleError(Intent data) {
@@ -86,5 +79,11 @@ public class FeedActivity extends BaseActivity {
 
     private void handleInvalidURL() {
         // whatever you want
+    }
+
+    public void navigateToNewsUrl(String url) {
+        Intent i = new Intent(Intent.ACTION_VIEW);
+        i.setData(Uri.parse(url));
+        startActivity(i);
     }
 }

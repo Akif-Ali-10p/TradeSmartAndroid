@@ -1,11 +1,12 @@
 package com.iba.tradesmart;
 
 import android.content.Context;
+import android.content.Intent;
+import android.net.Uri;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.ViewGroup;
-import android.widget.ImageView;
-import android.widget.TextView;
+import com.tenpearls.android.components.TextView;
 import android.view.View;
 import android.widget.Toast;
 
@@ -43,16 +44,18 @@ public class RSSAdapter extends RecyclerView.Adapter<RSSAdapter.CustomViewHolder
                 int position = holder.getPosition();
 
                 FeedItem feedItem = feedItemList.get(position);
-                Toast.makeText(mContext, feedItem.getUrl(), Toast.LENGTH_SHORT).show();
+//                Toast.makeText(mContext, feedItem.getUrl(), Toast.LENGTH_SHORT).show();
+
+                Intent i = new Intent(Intent.ACTION_VIEW);
+                i.setData(Uri.parse(feedItem.getUrl()));
+                mContext.startActivity(i);
             }
         };
 
         //Handle click event on both title and image click
         holder.textView.setOnClickListener(clickListener);
-        holder.imageView.setOnClickListener(clickListener);
 
         holder.textView.setTag(holder);
-        holder.imageView.setTag(holder);
     }
 
     @Override
@@ -61,12 +64,10 @@ public class RSSAdapter extends RecyclerView.Adapter<RSSAdapter.CustomViewHolder
     }
 
     public class CustomViewHolder extends RecyclerView.ViewHolder {
-        protected ImageView imageView;
         protected TextView textView;
 
         public CustomViewHolder(View view) {
             super(view);
-            this.imageView = (ImageView) view.findViewById(R.id.thumbnail);
             this.textView = (TextView) view.findViewById(R.id.title);
         }
     }
