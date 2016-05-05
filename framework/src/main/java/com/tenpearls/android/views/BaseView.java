@@ -2,8 +2,6 @@ package com.tenpearls.android.views;
 
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
-import android.support.v4.view.GravityCompat;
-import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
@@ -27,7 +25,7 @@ import com.tenpearls.android.interfaces.Controller;
 public abstract class BaseView
 {
     public View view;
-    public Controller controller;
+    protected Controller controller;
     private ProgressBar progressBar;
     private Toolbar toolbar;
 
@@ -35,7 +33,7 @@ public abstract class BaseView
         Life Cycle Methods
 	 */
 
-    public BaseView(Controller controller){
+    protected BaseView(Controller controller){
         super();
         this.controller = controller;
     }
@@ -46,11 +44,6 @@ public abstract class BaseView
             view = controller.getBaseActivity().getLayoutInflater().inflate(getViewLayout(), null);
         }
         return view;
-    }
-
-    public View getRetryView()
-    {
-        return null;
     }
 
     /**
@@ -85,7 +78,7 @@ public abstract class BaseView
      * @see AppCompatActivity#onCreate(Bundle)
      * @see Fragment#onCreateView(LayoutInflater, ViewGroup, Bundle)
      */
-    public abstract void onCreate();
+    protected abstract void onCreate();
 
     /**
      * Set all the Action Listeners in this method
@@ -95,14 +88,14 @@ public abstract class BaseView
      * @see BaseView#onCreate()
      */
 
-    public abstract void setActionListeners();
+    protected abstract void setActionListeners();
 
     public final void initialize() {
 
-        invalidateToolBar();
         onCreate();
         setActionListeners();
         setupProgressBar();
+        invalidateToolBar();
     }
 
     /**
@@ -125,7 +118,7 @@ public abstract class BaseView
 
         if(toolbar == null) {
             isAlreadyLoaded = false;
-            toolbar = (Toolbar) findViewById(getToolbarId());
+            toolbar = findViewById(getToolbarId());
         }
 
         if (toolbar == null) {
@@ -146,7 +139,7 @@ public abstract class BaseView
         onToolBarRefresh(toolbar);
     }
 
-    private final void setupToolBar()
+    private void setupToolBar()
     {
         controller.getBaseActivity().setSupportActionBar(toolbar);
 
@@ -163,12 +156,12 @@ public abstract class BaseView
 
     }
 
-    private final void setupProgressBar() {
+    private void setupProgressBar() {
         if(getProgressBarId() == 0) {
             return;
         }
 
-        progressBar = (ProgressBar) findViewById(R.id.progressBar);
+        progressBar = findViewById(R.id.progressBar);
         if(progressBar == null) {
             return;
         }
@@ -231,6 +224,7 @@ public abstract class BaseView
      * @see View#findViewById(int)
      */
 
+    @SuppressWarnings("unchecked")
     protected final <T extends View> T findViewById(int viewID)
     {
         if(view == null) {
@@ -347,25 +341,4 @@ public abstract class BaseView
         return controller.getBaseActivity();
     }
 
-/*
-    public void showLeftDrawer () {
-
-        if (drawerLayout != null) {
-            drawerLayout.openDrawer(GravityCompat.START);
-        }
-    }
-
-    public void showRightDrawer () {
-
-        if (drawerLayout != null) {
-            drawerLayout.openDrawer (GravityCompat.END);
-        }
-    }
-
-    public void closeDrawer() {
-
-        if (drawerLayout != null) {
-            drawerLayout.closeDrawers ();
-        }
-    }*/
 }

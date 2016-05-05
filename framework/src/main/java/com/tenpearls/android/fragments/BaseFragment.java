@@ -1,8 +1,10 @@
 package com.tenpearls.android.fragments;
 
-import android.app.Fragment;
+
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.design.widget.Snackbar;
+import android.support.v4.app.Fragment;
 import android.support.v7.widget.Toolbar;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -25,14 +27,12 @@ public abstract class BaseFragment extends Fragment implements Controller
     protected ServiceFactory serviceFactory;
     protected BaseView view;
 
+    private Snackbar snackbar;
+
     /*
         Life  cycle Methods
      */
 
-    public BaseFragment()
-    {
-        super();
-    }
 
 
     /**
@@ -154,7 +154,7 @@ public abstract class BaseFragment extends Fragment implements Controller
      * @return an object of a subclass of {@link BaseView}
      */
 
-    public abstract BaseView getViewForController(Controller controller);
+    protected abstract BaseView getViewForController(Controller controller);
 
     /**
      * Call this method to show a loader
@@ -215,5 +215,25 @@ public abstract class BaseFragment extends Fragment implements Controller
     {
         super.onResume();
         view.onResume();
+    }
+
+    @Override
+    public void onPause() {
+        super.onPause();
+        if(snackbar == null) {
+            return;
+        }
+
+        snackbar.dismiss();
+    }
+
+    @Override
+    public final View getView() {
+        return view.getView();
+    }
+
+    @Override
+    public void setSnackbar(Snackbar snackBar) {
+        this.snackbar = snackBar;
     }
 }

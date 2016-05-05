@@ -31,8 +31,8 @@ public class Loader {
 	public static void showLoader (Activity activity, String message, String title) {
 
 		LayoutInflater inflater = LayoutInflater.from (activity);
-		View custom_view = inflater.inflate (R.layout.view_custom_progressdialog, null);
-		TextView pm = (TextView) custom_view.findViewById (R.id.txtTitle);
+		View progressDialogView = inflater.inflate(R.layout.view_progress_dialog, null);
+		TextView pm = (TextView) progressDialogView.findViewById (R.id.txtTitle);
 
 		progressDialog = new ProgressDialog (activity);
 		progressDialog.setMessage(message);
@@ -46,7 +46,7 @@ public class Loader {
 		progressDialog.getWindow().setBackgroundDrawable(new ColorDrawable(android.graphics.Color.TRANSPARENT));
 		progressDialog.show ();
 
-		progressDialog.setContentView (custom_view);
+		progressDialog.setContentView (progressDialogView);
 
 	}
 
@@ -60,7 +60,7 @@ public class Loader {
 			if (progressDialog.isShowing ())
 				progressDialog.dismiss ();
 		}
-		catch (Exception e) {
+		catch (Exception ignored) {
 
 		}
 

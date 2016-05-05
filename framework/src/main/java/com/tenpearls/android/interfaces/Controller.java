@@ -1,7 +1,9 @@
 package com.tenpearls.android.interfaces;
 
+import android.support.design.widget.Snackbar;
+import android.view.View;
+
 import com.tenpearls.android.activities.BaseActivity;
-import com.tenpearls.android.service.ServiceFactory;
 
 /**
  * An interface to be implemented by class
@@ -16,4 +18,6 @@ public interface Controller {
     BaseActivity getBaseActivity();
     String getActionBarTitle();
     boolean hasToolbar();
+    View getView();
+    void setSnackbar(Snackbar snackbar);
 }

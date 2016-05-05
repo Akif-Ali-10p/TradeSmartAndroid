@@ -17,7 +17,7 @@ import com.tenpearls.android.R;
  */
 public class LogUtility {
 
-	public static final boolean LOGGING_ENABLED = true;
+	private static final boolean LOGGING_ENABLED = true;
 
 	/**
 	 * Log using the desired Log level with tag and message

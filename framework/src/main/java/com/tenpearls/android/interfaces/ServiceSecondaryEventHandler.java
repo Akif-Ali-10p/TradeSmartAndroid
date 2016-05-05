@@ -1,7 +1,7 @@
 package com.tenpearls.android.interfaces;
 
 /**
- * Created by khalil on 27/01/2016.
+ * Created on 27/01/2016.
  */
 public interface ServiceSecondaryEventHandler {
 

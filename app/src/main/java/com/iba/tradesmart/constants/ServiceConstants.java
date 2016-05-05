@@ -6,6 +6,6 @@ package com.iba.tradesmart.constants;
 public class ServiceConstants {
 
     /*** Base URL ***/
-    public static final String SERVICE_URL = "http://65.181.112.199:85/default.aspx";
+    public static final String SERVICE_URL = "http://65.181.112.199:85/";
 
 }

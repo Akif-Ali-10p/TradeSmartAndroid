@@ -1,7 +1,7 @@
 package com.tenpearls.android.service;
 
 /**
- * Created by khalil on 27/01/2016.
+ * Created on 27/01/2016.
  */
 public interface ServiceCall<T> {
 
@@ -9,5 +9,8 @@ public interface ServiceCall<T> {
     void enqueue(ServiceCallback callback);
 
     ServiceCall<T> clone();
+    ServiceCall<T> enableRetry(boolean enable);
+    ServiceCall<T> maxRetries(int maxRetries);
+    boolean isExecuted();
 
 }

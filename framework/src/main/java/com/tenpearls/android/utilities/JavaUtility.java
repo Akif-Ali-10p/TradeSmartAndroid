@@ -1,7 +1,5 @@
 package com.tenpearls.android.utilities;
 
-import com.google.gson.reflect.TypeToken;
-
 import java.lang.reflect.Method;
 import java.lang.reflect.Type;
 
@@ -11,17 +9,16 @@ import java.lang.reflect.Type;
  */
 public class JavaUtility {
 
-
     /**
-     * Returns the Super {@link Class} object of {@link TypeToken}
-     * @param typeToken
+     * Returns the Super {@link Class} object of {@link Type}
+     * @param type
      * @return Default is {@link Object} Class
      */
 
-    public final static Class getSuperclassOfTokenType(TypeToken typeToken) {
+    public static Class getSuperclassOfTokenType(Type type) {
         try {
 
-            Class currentClass = JavaUtility.getClassOfTokenType(typeToken);
+            Class currentClass = JavaUtility.getClassOfTokenType(type);
             if(currentClass.equals(Object.class)) {
                 return currentClass;
             }
@@ -33,23 +30,22 @@ public class JavaUtility {
         }
     }
 
+
     /**
-     * Returns the {@link Class} object of {@link TypeToken}
-     * @param typeToken
+     * Returns the {@link Class} object of {@link Type}
+     * @param type
      * @return Default is {@link Object} Class
      */
 
-    public final static Class getClassOfTokenType(TypeToken typeToken) {
+    public static Class getClassOfTokenType(Type type) {
         try {
 
-            Type type = typeToken.getType();
             return Class.forName(type.toString().split(" ")[1]);
 
         } catch (Exception e) {
             return Object.class;
         }
     }
-
     /**
      * This method can be used to invoke a method on a
      * target object with a set of arguments
@@ -61,7 +57,7 @@ public class JavaUtility {
      * @return This method will return whatever the method returns
      */
 
-    public final static Object invokeMethod(String methodToInvoke, Object targetObj, Object... arguments) throws Exception{
+    public static Object invokeMethod(String methodToInvoke, Object targetObj, Object... arguments) throws Exception{
 
         Method[] allMethods = targetObj.getClass().getMethods();
         for (Method m : allMethods) {

@@ -2,7 +2,6 @@ package com.tenpearls.android.components;
 
 import android.content.Context;
 import android.content.res.TypedArray;
-import android.graphics.Canvas;
 import android.graphics.Typeface;
 import android.util.AttributeSet;
 

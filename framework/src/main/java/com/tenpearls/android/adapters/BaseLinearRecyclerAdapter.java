@@ -4,15 +4,14 @@ import com.tenpearls.android.entities.BaseEntity;
 import com.tenpearls.android.utilities.CollectionUtility;
 import com.tenpearls.android.viewholders.BaseViewHolder;
 
-import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Created by khalil on 01/02/2016.
+ * Created on 01/02/2016.
  */
 public abstract class BaseLinearRecyclerAdapter<VH extends BaseViewHolder> extends BaseRecyclerAdapter<VH> {
 
-    public BaseLinearRecyclerAdapter(List<? extends BaseEntity> entityList) {
+    protected BaseLinearRecyclerAdapter(List<? extends BaseEntity> entityList) {
         super(entityList);
     }
 

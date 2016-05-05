@@ -3,9 +3,7 @@ package com.tenpearls.android.components;
 import android.content.Context;
 import android.content.res.TypedArray;
 import android.graphics.Typeface;
-import android.text.InputType;
 import android.util.AttributeSet;
-import android.view.inputmethod.InputMethodManager;
 
 import com.tenpearls.android.R;
 import com.tenpearls.android.utilities.FontUtility;

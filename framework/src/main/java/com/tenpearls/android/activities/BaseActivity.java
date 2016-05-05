@@ -3,8 +3,10 @@ package com.tenpearls.android.activities;
 import android.content.Intent;
 import android.content.pm.ActivityInfo;
 import android.os.Bundle;
+import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.view.View;
 import android.widget.Toast;
 
 import com.tenpearls.android.interfaces.Controller;
@@ -23,10 +25,12 @@ public abstract class BaseActivity extends AppCompatActivity implements Controll
 	protected BaseView view;
 	protected ServiceFactory serviceFactory;
 
-	public static boolean isAppWentToBg             = false;
-	public static boolean isWindowFocused           = false;
-	public static boolean isBackPressed             = false;
+	private static boolean isAppWentToBg             = false;
+	private static boolean isWindowFocused           = false;
+	private static boolean isBackPressed             = false;
 	public static boolean isMovingToAnotherActivity = false;
+
+	private Snackbar snackbar;
 
 	/**
 	 * This method must return an object of a subclass of
@@ -36,7 +40,7 @@ public abstract class BaseActivity extends AppCompatActivity implements Controll
 	 * @param controller an implementation of {@link Controller} interface
 	 * @return an object of a subclass of {@link BaseView}
 	 */
-	public abstract BaseView getViewForController(Controller controller);
+	protected abstract BaseView getViewForController(Controller controller);
 
 
 	/**
@@ -85,7 +89,7 @@ public abstract class BaseActivity extends AppCompatActivity implements Controll
 
 	protected abstract ServiceFactory getServiceFactory();
 
-	private final void initUI()
+	private void initUI()
 	{
 		this.view = getViewForController(this);
 		setContentView(this.view.getView());
@@ -165,7 +169,7 @@ public abstract class BaseActivity extends AppCompatActivity implements Controll
 	 * @see BaseActivity#showLongToast(String)
 	 */
 
-	protected final void showToast(String text)
+	public final void showToast(String text)
 	{
 		view.showToast(text);
 	}
@@ -178,7 +182,7 @@ public abstract class BaseActivity extends AppCompatActivity implements Controll
 	 *
 	 * @see BaseActivity#showToast(String)
 	 */
-	protected final void showLongToast(String text)
+	public final void showLongToast(String text)
 	{
 		view.showLongToast(text);
 	}
@@ -194,6 +198,16 @@ public abstract class BaseActivity extends AppCompatActivity implements Controll
 	protected void onResume() {
 		super.onResume();
 		view.onResume();
+	}
+
+	@Override
+	protected void onPause() {
+		super.onPause();
+		if(snackbar == null) {
+			return;
+		}
+
+		snackbar.dismiss();
 	}
 
 	/**
@@ -218,16 +232,16 @@ public abstract class BaseActivity extends AppCompatActivity implements Controll
 
 	@Override
 	protected void onStart () {
-		super.onStart ();
+		super.onStart();
 		if (isAppWentToBg) {
 			isAppWentToBg = false;
-			onEnterForeground ();
+			onEnterForeground();
 		}
 	}
 
 	@Override
 	protected void onStop () {
-		super.onStop ();
+		super.onStop();
 		if (!isWindowFocused) {
 			isAppWentToBg = true;
 			onEnterBackground ();
@@ -245,14 +259,14 @@ public abstract class BaseActivity extends AppCompatActivity implements Controll
 			isWindowFocused = true;
 		}
 
-		super.onWindowFocusChanged (hasFocus);
+		super.onWindowFocusChanged(hasFocus);
 	}
 
 	@Override
 	public void startActivity (Intent intent) {
 
 		isMovingToAnotherActivity = true;
-		super.startActivity (intent);
+		super.startActivity(intent);
 	}
 
 	@Override
@@ -281,6 +295,14 @@ public abstract class BaseActivity extends AppCompatActivity implements Controll
 		// TODO
 	}
 
+	@Override
+	public final View getView() {
+		return view.getView();
+	}
 
+	@Override
+	public void setSnackbar(Snackbar snackBar) {
 
+		this.snackbar = snackBar;
+	}
 }

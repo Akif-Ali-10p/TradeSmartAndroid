@@ -20,14 +20,25 @@ import java.util.ArrayList;
 public class JsonUtility {
 
 	/**
+	 * Parses a Json string into Json Element.
+	 *
+	 * @param jsonString The Json string
+	 * @return {@link JsonElement} instance created from the Json string
+	 */
+
+	public static JsonElement parse (String jsonString) {
+		JsonParser parser = new JsonParser ();
+		return parser.parse(jsonString);
+	}
+
+	/**
 	 * Parses a Json string into Json object.
 	 * 
 	 * @param jsonString The Json string
 	 * @return {@link JsonObject} instance created from the Json string
 	 */
 	public static JsonObject parseToJsonObject (String jsonString) {
-		JsonParser parser = new JsonParser ();
-		return (JsonObject) parser.parse (jsonString);
+		return parse(jsonString).getAsJsonObject();
 	}
 
 	/**
@@ -39,8 +50,7 @@ public class JsonUtility {
 
 	public static JsonArray parseToJsonArray (String jsonString) {
 
-		JsonParser parser = new JsonParser ();
-		return (JsonArray) parser.parse (jsonString);
+		return parse(jsonString).getAsJsonArray();
 	}
 
 
@@ -126,6 +136,47 @@ public class JsonUtility {
 			return defaultValue;
 		}
 		return jsonPrimitive.getAsInt();
+	}
+
+	/**
+	 * Get long value for a key on a Json object.
+	 *
+	 * @param jsonObject The Json object which has the provided key
+	 * @param key Json key, whose values needs to be returned
+	 * @return Long value of the Json key
+	 */
+	public static long getLong (JsonObject jsonObject, String key) {
+
+		return getLong(jsonObject, key, 0L);
+	}
+
+	/**
+	 * Get long value for a key on a Json object.
+	 *
+	 * @param jsonObject The Json object which has the provided key
+	 * @param key Json key, whose values needs to be returned
+	 * @param defaultValue Default value
+	 * @return Long value of the Json key. Returns defaultValue if Json
+	 *         object is null OR the provided Json key does not exist
+	 */
+	public static long getLong (JsonObject jsonObject, String key, long defaultValue) {
+
+		JsonPrimitive jsonPrimitive = getJsonPrimitive(jsonObject, key);
+		if(jsonPrimitive == null
+				|| !jsonPrimitive.isNumber()) {
+			return defaultValue;
+		}
+		return jsonPrimitive.getAsLong();
+	}
+
+	public static long getLong (JsonArray jsonArray, int index, long defaultValue) {
+
+		JsonPrimitive jsonPrimitive = getJsonPrimitive(jsonArray, index);
+		if(jsonPrimitive == null
+				|| !jsonPrimitive.isNumber()) {
+			return defaultValue;
+		}
+		return jsonPrimitive.getAsLong();
 	}
 
 	/**
@@ -338,12 +389,9 @@ public class JsonUtility {
 	}
 
 	public static boolean isJsonElementNull(JsonElement jsonElement) {
-		if(jsonElement == null
-				|| jsonElement.isJsonNull()) {
-			return true;
-		}
+		return jsonElement == null
+				|| jsonElement.isJsonNull();
 
-		return false;
 	}
 
 	public static ArrayList<?> getArrayListFromJsonArray(JsonArray jsonArray) {

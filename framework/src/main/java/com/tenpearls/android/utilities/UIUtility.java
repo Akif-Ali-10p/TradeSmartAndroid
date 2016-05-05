@@ -2,6 +2,8 @@ package com.tenpearls.android.utilities;
 
 import android.app.AlertDialog;
 import android.content.Context;
+import android.support.design.widget.Snackbar;
+import android.view.View;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.EditText;
 import android.widget.Toast;
@@ -51,6 +53,17 @@ public class UIUtility {
 	}
 
 	/**
+	 * Hides the soft keyboard from the phone's screen.
+	 *
+	 * @param context A valid context
+	 */
+	public static void hideSoftKeyboard (Context context) {
+
+		InputMethodManager imm = (InputMethodManager) context.getSystemService (Context.INPUT_METHOD_SERVICE);
+		imm.toggleSoftInput(InputMethodManager.HIDE_IMPLICIT_ONLY, 0);
+	}
+
+	/**
 	 * Shows the soft keyboard on the phone's screen.
 	 *
 	 * @param editText A valid reference to any EditText, currently in the view
@@ -60,11 +73,21 @@ public class UIUtility {
 	public static void showSoftKeyboard (EditText editText, Context context) {
 
 		InputMethodManager imm = (InputMethodManager) context.getSystemService (Context.INPUT_METHOD_SERVICE);
-		imm.showSoftInput (editText, 0);
+		imm.showSoftInput(editText, 0);
 	}
 
 	public static int getResourceID(Context context, String key, String resourceType) {
 		String packageName = context.getPackageName();
 		return context.getResources().getIdentifier(key, resourceType, packageName);
 	}
+
+	public static void showToast(Context context, String text, int duration) {
+		Toast.makeText(context, text, duration).show();
+	}
+
+
+	public static void showSnackBar(View view, String text, int duration) {
+		Snackbar.make(view, text, duration).show();
+	}
+
 }

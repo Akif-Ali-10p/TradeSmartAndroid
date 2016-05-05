@@ -11,10 +11,6 @@ import android.content.Context;
 
 public abstract class ServiceFactory {
 
-	public ServiceFactory() {
-
-	}
-
 	/**
 	 * Call this method to initialize the Factory.
 	 * Call to this method is a must.
@@ -24,7 +20,7 @@ public abstract class ServiceFactory {
 	 * @see ServiceFactory#getServiceProtocol()
 	 */
 
-	public final void initialize (Context context) throws Exception {
+	public final void initialize (Context context) {
 
 		ServiceManager.getInstance().initialize(getServiceProtocol(), context);
 	}
@@ -47,6 +43,6 @@ public abstract class ServiceFactory {
 	 * Return a {@link ServiceProtocol} subclass in this method
 	 *
 	 */
-	public abstract ServiceProtocol getServiceProtocol();
+	protected abstract ServiceProtocol getServiceProtocol();
 
 }

@@ -16,10 +16,8 @@ public class StringUtility {
 	 */
 	public static boolean isEmptyOrNull (String string) {
 
-		if (string == null)
-			return true;
+		return string == null || (string.trim().isEmpty());
 
-		return (string.trim ().isEmpty());
 	}
 
 	/**

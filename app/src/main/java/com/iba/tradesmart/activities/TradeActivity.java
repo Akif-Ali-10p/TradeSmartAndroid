@@ -9,6 +9,7 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 
 import com.iba.tradesmart.*;
+import com.iba.tradesmart.activities.base.BaseActivity;
 import com.iba.tradesmart.views.TradeView;
 import com.tenpearls.android.components.Button;
 import com.tenpearls.android.components.EditText;
@@ -23,17 +24,12 @@ import android.widget.RadioGroup;
 import android.widget.Spinner;
 import android.widget.AdapterView.OnItemSelectedListener;
 
-public class TradeActivity extends com.tenpearls.android.activities.BaseActivity implements OnItemSelectedListener{
+public class TradeActivity extends BaseActivity implements OnItemSelectedListener{
     private RadioGroup radioGroup;
     private RadioButton radioButton;
 
     private Button btnProceed;
     private EditText etQuantity;
-
-    @Override
-    protected com.tenpearls.android.service.ServiceFactory getServiceFactory() {
-        return new com.iba.tradesmart.services.ServiceFactory();
-    }
 
     @Override
     public BaseView getViewForController(Controller controller) {

@@ -13,7 +13,7 @@ import java.util.ArrayList;
 
 public abstract class BaseResponse<T> implements WebServiceResponse{
 
-	protected ArrayList<T> list = new ArrayList<T>();
+	protected ArrayList<T> list = new ArrayList<>();
 	protected T value;
 
 	/**

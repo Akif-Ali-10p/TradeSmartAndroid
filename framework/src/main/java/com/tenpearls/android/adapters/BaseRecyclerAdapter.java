@@ -22,9 +22,14 @@ public abstract class BaseRecyclerAdapter<VH extends BaseViewHolder> extends Rec
 {
     List<? extends BaseEntity> entityList;
 
-    public BaseRecyclerAdapter(List<? extends BaseEntity> entityList)
+    protected BaseRecyclerAdapter(List<? extends BaseEntity> entityList)
     {
         this.entityList = entityList;
+    }
+
+    public void setDataList(List<? extends BaseEntity> entityList) {
+        this.entityList = entityList;
+        notifyDataSetChanged();
     }
 
     @Override
@@ -64,8 +69,8 @@ public abstract class BaseRecyclerAdapter<VH extends BaseViewHolder> extends Rec
 
     @Override
     public final VH onCreateViewHolder(ViewGroup parent, int viewType) {
-        View view = getViewForViewHolder(getViewLayout(), parent, viewType);
-        return getViewHolder(view);
+        View view = getViewForViewHolder(getViewLayout(viewType), parent, viewType);
+        return getViewHolder(view, viewType);
     }
 
     /**
@@ -73,8 +78,8 @@ public abstract class BaseRecyclerAdapter<VH extends BaseViewHolder> extends Rec
      *
      * <br/> This method is called from {@link BaseRecyclerAdapter#onCreateViewHolder(ViewGroup, int)}
      *
-     *  @see BaseRecyclerAdapter#getViewLayout()
-     *  @see BaseRecyclerAdapter#getViewHolder(View)
+     *  @see BaseRecyclerAdapter#getViewLayout(int)
+     *  @see BaseRecyclerAdapter#getViewHolder(View, int)
      */
 
     protected View getViewForViewHolder(int layoutID, ViewGroup parent, int viewType) {
@@ -88,9 +93,9 @@ public abstract class BaseRecyclerAdapter<VH extends BaseViewHolder> extends Rec
      * <br/> This method is called from {@link BaseRecyclerAdapter#onCreateViewHolder(ViewGroup, int)}
      *
      *  @see BaseRecyclerAdapter#getViewForViewHolder(int, ViewGroup, int)
-     *  @see BaseRecyclerAdapter#getViewHolder(View)
+     *  @see BaseRecyclerAdapter#getViewHolder(View, int)
      */
-    public abstract int getViewLayout();
+    protected abstract int getViewLayout(int viewType);
 
     /**
      * Return object of a class that inherits
@@ -98,10 +103,12 @@ public abstract class BaseRecyclerAdapter<VH extends BaseViewHolder> extends Rec
      *
      * <br/> This method is called from {@link BaseRecyclerAdapter#onCreateViewHolder(ViewGroup, int)}
      *
-     * @param view View to be associated with the {@link android.support.v7.widget.RecyclerView.ViewHolder}
+     * @param view View to be associated with the {@link RecyclerView.ViewHolder}
      *
      * @see BaseRecyclerAdapter#getViewForViewHolder(int, ViewGroup, int)
-     * @see BaseRecyclerAdapter#getViewLayout()
+     * @see BaseRecyclerAdapter#getViewLayout(int)
      */
-    public abstract VH getViewHolder(View view);
+    public abstract VH getViewHolder(View view, int viewType);
+
+
 }

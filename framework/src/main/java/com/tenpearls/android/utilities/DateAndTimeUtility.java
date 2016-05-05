@@ -23,7 +23,7 @@ public class DateAndTimeUtility {
 	 * <br/> Returns empty string if there is a problem
 	 */
 
-	public static final String format (Date date, String dateFormat, TimeZone timeZone) {
+	public static String format (Date date, String dateFormat, TimeZone timeZone) {
 
 		try {
 			SimpleDateFormat simpleDateFormat = new SimpleDateFormat (dateFormat, Locale.getDefault ());
@@ -45,7 +45,7 @@ public class DateAndTimeUtility {
 	 * <br/> Returns null if there is a problem
 	 */
 
-	public static final Date parse (String dateString, String dateFormat, TimeZone timeZone) {
+	public static Date parse (String dateString, String dateFormat, TimeZone timeZone) {
 
 		try {
 			SimpleDateFormat simpleDateFormat = new SimpleDateFormat(dateFormat, Locale.getDefault());
@@ -64,7 +64,7 @@ public class DateAndTimeUtility {
 	 * <br/> Returns empty string if there is a problem
 	 */
 
-	public static final String format (Date date, String dateFormat) {
+	public static String format (Date date, String dateFormat) {
 
 		return format(date, dateFormat, null);
 	}
@@ -77,7 +77,7 @@ public class DateAndTimeUtility {
 	 * <br/> Returns empty string if there is a problem
 	 */
 
-	public static final String formatToUTC (Date date, String dateFormat) {
+	public static String formatToUTC (Date date, String dateFormat) {
 
 		return format(date, dateFormat, getUTCTimeZone());
 	}
@@ -91,7 +91,7 @@ public class DateAndTimeUtility {
 	 * <br/> Returns null if there is a problem
 	 */
 
-	public static final Date parseToUTCDate (String dateString, String dateFormat) {
+	public static Date parseToUTCDate (String dateString, String dateFormat) {
 
 		return parse(dateString, dateFormat, getUTCTimeZone());
 	}
@@ -105,7 +105,7 @@ public class DateAndTimeUtility {
 	 * <br/> Returns null if there is a problem
 	 */
 
-	public static final Date parse (String dateString, String dateFormat) {
+	public static Date parse (String dateString, String dateFormat) {
 
 		return parse(dateString, dateFormat, null);
 	}
@@ -119,7 +119,7 @@ public class DateAndTimeUtility {
 	 * <br/> Returns empty string if there is a problem
 	 */
 
-	public static final String convertToUTCString (String dateString, String dateFormat) {
+	public static String convertToUTCString (String dateString, String dateFormat) {
 
 		try {
 			SimpleDateFormat simpleDateFormat = new SimpleDateFormat (dateFormat, Locale.getDefault ());
@@ -140,7 +140,7 @@ public class DateAndTimeUtility {
 	 * <br/> Returns empty string if there is a problem
 	 */
 
-	public static final String convertToLocal (String dateString, String dateFormat)  {
+	public static String convertToLocal (String dateString, String dateFormat)  {
 
 		return parse(dateString, dateFormat, getUTCTimeZone()).toString();
 	}
@@ -154,7 +154,7 @@ public class DateAndTimeUtility {
 	 * <br/> Returns empty string if there is a problem
 	 */
 
-	public static final String convertMillisToUTCTime (long milliSeconds, String dateFormat) {
+	public static String convertMillisToUTCTime (long milliSeconds, String dateFormat) {
 
 		return format(new Date(milliSeconds), dateFormat, getUTCTimeZone());
 	}
@@ -168,7 +168,7 @@ public class DateAndTimeUtility {
 	 * <br/> Returns empty string if there is a problem
 	 */
 
-	public static final String convertMillisToLocalTime (long milliSeconds, String dateFormat) {
+	public static String convertMillisToLocalTime (long milliSeconds, String dateFormat) {
 
 		return format(new Date(milliSeconds), dateFormat);
 	}
@@ -180,7 +180,7 @@ public class DateAndTimeUtility {
 	 * @return Number of days from Today
 	 */
 
-	public static final int getDaysDifferenceFromToday (Date date) {
+	public static int getDaysDifferenceFromToday (Date date) {
 
 		Calendar calendar = Calendar.getInstance ();
 		calendar.setTime (date);
@@ -197,7 +197,7 @@ public class DateAndTimeUtility {
 	 *
 	 */
 
-	public static final TimeZone getUTCTimeZone () {
+	public static TimeZone getUTCTimeZone () {
 
 		return TimeZone.getTimeZone ("UTC");
 	}

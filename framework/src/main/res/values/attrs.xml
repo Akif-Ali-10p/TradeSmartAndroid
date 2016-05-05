@@ -2,7 +2,7 @@
 <resources>
     
     <declare-styleable name="Generic">
-        <attr name="font_path_from_assets" format="reference|string"></attr>
+        <attr name="font_path_from_assets" format="reference|string"/>
     </declare-styleable>
 
 </resources>

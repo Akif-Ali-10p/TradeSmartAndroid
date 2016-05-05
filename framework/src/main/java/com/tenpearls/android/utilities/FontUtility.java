@@ -17,7 +17,7 @@ public class FontUtility {
 	private static final String PATH_PREFIX = "fonts/";
 
 
-	private static Hashtable<String, Typeface> fontCache = new Hashtable<String, Typeface> ();
+	private static Hashtable<String, Typeface> fontCache = new Hashtable<> ();
 
 	/**
 	 * Gets font {@link Typeface} from assets directory.
@@ -40,7 +40,7 @@ public class FontUtility {
 			try {
 				typeface = Typeface.createFromAsset (context.getAssets (), fontPathFromAssets);
 				fontCache.put(fontPathFromAssets, typeface);
-			} catch (Exception ex) {
+			} catch (Exception ignored) {
 
 			}
 		}

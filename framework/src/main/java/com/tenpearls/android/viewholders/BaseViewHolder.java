@@ -15,12 +15,9 @@ import com.tenpearls.android.entities.BaseEntity;
  */
 public abstract class BaseViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener
 {
-    public BaseViewHolder(View itemView)
+    protected BaseViewHolder(View itemView)
     {
         super(itemView);
-        if(itemView == null) {
-            return;
-        }
         itemView.setOnClickListener(this);
     }
 

@@ -53,4 +53,15 @@ public class ValidationUtility {
 
 		return !(StringUtility.isEmptyOrNull (name));
 	}
+
+	/**
+	 * Validates if the provided string meets the criteria of a valid password.
+	 * <br/> NOTE : Just checks if string is empty or not
+	 * @param password The input password string
+	 * @return {@code true} if password is valid, {@code false} otherwise
+	 */
+	public static boolean isValidPassword (String password) {
+
+		return !(StringUtility.isEmptyOrNull (password));
+	}
 }

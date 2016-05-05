@@ -22,9 +22,10 @@ public class PreferenceUtility {
 	 */
 	public static void putInteger (Context context, String key, int value) {
 
-		SharedPreferences.Editor editor = PreferenceManager.getDefaultSharedPreferences (context).edit ();
-		editor.putInt (key, value);
-		editor.commit ();
+		PreferenceManager.getDefaultSharedPreferences (context)
+							.edit()
+							.putInt(key, value)
+							.apply();
 	}
 
 	/**
@@ -36,9 +37,10 @@ public class PreferenceUtility {
 	 */
 	public static void putBoolean (Context context, String key, boolean value) {
 
-		SharedPreferences.Editor editor = PreferenceManager.getDefaultSharedPreferences (context).edit ();
-		editor.putBoolean (key, value);
-		editor.commit ();
+		PreferenceManager.getDefaultSharedPreferences (context)
+				.edit()
+				.putBoolean(key, value)
+				.apply();
 	}
 
 	/**
@@ -50,9 +52,10 @@ public class PreferenceUtility {
 	 */
 	public static void putString (Context context, String key, String value) {
 
-		SharedPreferences.Editor editor = PreferenceManager.getDefaultSharedPreferences (context).edit ();
-		editor.putString (key, value);
-		editor.commit ();
+		PreferenceManager.getDefaultSharedPreferences (context)
+				.edit()
+				.putString (key, value)
+				.apply();
 	}
 
 	/**
@@ -64,9 +67,10 @@ public class PreferenceUtility {
 	 */
 	public static void putFloat (Context context, String key, float value) {
 
-		SharedPreferences.Editor editor = PreferenceManager.getDefaultSharedPreferences (context).edit ();
-		editor.putFloat (key, value);
-		editor.commit ();
+		PreferenceManager.getDefaultSharedPreferences (context)
+				.edit()
+				.putFloat(key, value)
+				.apply();
 	}
 
 	/**
@@ -78,9 +82,10 @@ public class PreferenceUtility {
 	 */
 	public static void putLong (Context context, String key, long value) {
 
-		SharedPreferences.Editor editor = PreferenceManager.getDefaultSharedPreferences (context).edit ();
-		editor.putLong (key, value);
-		editor.commit ();
+		PreferenceManager.getDefaultSharedPreferences (context)
+				.edit()
+				.putLong(key, value)
+				.apply();
 	}
 
 	/**
@@ -94,8 +99,8 @@ public class PreferenceUtility {
 	 */
 	public static int getInteger (Context context, String key, int defaultValue) {
 
-		SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences (context);
-		return prefs.getInt (key, defaultValue);
+		return PreferenceManager.getDefaultSharedPreferences(context)
+								.getInt(key, defaultValue);
 	}
 
 	/**
@@ -109,8 +114,8 @@ public class PreferenceUtility {
 	 */
 	public static String getString (Context context, String key, String defaultValue) {
 
-		SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences (context);
-		return prefs.getString (key, defaultValue);
+		return PreferenceManager.getDefaultSharedPreferences(context)
+				.getString(key, defaultValue);
 	}
 
 	/**
@@ -124,8 +129,8 @@ public class PreferenceUtility {
 	 */
 	public static boolean getBoolean (Context context, String key, boolean defaultValue) {
 
-		SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences (context);
-		return prefs.getBoolean (key, defaultValue);
+		return PreferenceManager.getDefaultSharedPreferences(context)
+				.getBoolean(key, defaultValue);
 	}
 
 	/**
@@ -139,8 +144,8 @@ public class PreferenceUtility {
 	 */
 	public static float getFloat (Context context, String key, float defaultValue) {
 
-		SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences (context);
-		return prefs.getFloat (key, defaultValue);
+		return PreferenceManager.getDefaultSharedPreferences(context)
+				.getFloat(key, defaultValue);
 	}
 
 	/**
@@ -154,7 +159,7 @@ public class PreferenceUtility {
 	 */
 	public static long getLong (Context context, String key, long defaultValue) {
 
-		SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences (context);
-		return prefs.getLong (key, defaultValue);
+		return PreferenceManager.getDefaultSharedPreferences(context)
+				.getLong(key, defaultValue);
 	}
 }

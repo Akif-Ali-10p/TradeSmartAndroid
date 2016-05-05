@@ -1,11 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <string name="tag_framework">10Framework</string>
     <string name="not_implemented">Not Implemented</string>
-    <string name="internet_not_found">We\'re having trouble getting data right now.</string>
     <string name="error_message_default">Unknown Error</string>
     <string name="font_default">OpenSans-Bold.ttf</string>
     <string name="error_message_service_protocol">Service Protocol cannot be null</string>
+    <string name="error_retry_request">There was an error while making the request. Do you want to retry?</string>
+    <string name="error_internet_connection">No internet connection. Do you want to retry?</string>
+    <string name="btn_title_retry">Retry</string>
+    <string name="error_connection_timeout">Request timed out</string>
 
 </resources>

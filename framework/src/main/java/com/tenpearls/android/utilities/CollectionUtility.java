@@ -1,7 +1,11 @@
 package com.tenpearls.android.utilities;
 
+import com.tenpearls.android.entities.BaseEntity;
+
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
+import java.util.Random;
 
 /**
  * This class is responsible for determining collection types or states. For
@@ -20,9 +24,27 @@ public class CollectionUtility {
 	 */
 	public static boolean isEmptyOrNull (List<?> list) {
 
-		if (list == null)
-			return true;
+		return list == null || list.isEmpty();
 
-		return list.isEmpty();
+	}
+
+	public static String getCommaSeparatedStringFromArray(ArrayList list)
+	{
+		StringBuilder result = new StringBuilder();
+
+		for (int i = 0; i < list.size(); i++)
+		{
+			result.append(list.get(i));
+			result.append(",");
+		}
+
+		return result.length() > 0 ? result.substring(0, result.length() - 1): "";
+	}
+
+	// Implementing Fisher–Yates shuffle
+	public static void shuffleArrayList(ArrayList<? extends BaseEntity> arrayList)
+	{
+        long seed = System.nanoTime();
+        Collections.shuffle(arrayList, new Random(seed));
 	}
 }

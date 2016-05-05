@@ -54,13 +54,14 @@ public class DeviceUtility {
 	 */
 	public static int getBatteryLevel (Context context) {
 
-		IntentFilter ifilter = new IntentFilter (Intent.ACTION_BATTERY_CHANGED);
-		Intent batteryStatus = context.registerReceiver (null, ifilter);
+		Intent batteryStatus = context.registerReceiver (null, new IntentFilter (Intent.ACTION_BATTERY_CHANGED));
+		if(batteryStatus == null) {
+			return -1;
+		}
 		int level = batteryStatus.getIntExtra (BatteryManager.EXTRA_LEVEL, -1);
 		int scale = batteryStatus.getIntExtra (BatteryManager.EXTRA_SCALE, -1);
 
-		int batteryLevel = (int) (level / (float) scale * 100);
-		return batteryLevel;
+		return (int) (level / (float) scale * 100);
 	}
 
 	/**
@@ -122,11 +123,8 @@ public class DeviceUtility {
 		ConnectivityManager cm = (ConnectivityManager) context.getSystemService (Context.CONNECTIVITY_SERVICE);
 		NetworkInfo netInfo = cm.getActiveNetworkInfo ();
 
-		if (netInfo != null && netInfo.isConnected () && netInfo.isAvailable ()) {
-			return true;
-		}
+		return netInfo != null && netInfo.isAvailable() && netInfo.isConnectedOrConnecting();
 
-		return false;
 	}
 
 }

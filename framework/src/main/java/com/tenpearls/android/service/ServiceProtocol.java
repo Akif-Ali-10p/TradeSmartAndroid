@@ -1,17 +1,11 @@
 package com.tenpearls.android.service;
 
-import com.google.gson.Gson;
-import com.google.gson.JsonElement;
-import com.google.gson.TypeAdapter;
-import com.google.gson.TypeAdapterFactory;
-import com.google.gson.reflect.TypeToken;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
-import com.tenpearls.android.entities.BaseEntity;
-import com.tenpearls.android.interfaces.WebServiceResponse;
-import com.tenpearls.android.service.input.BaseInput;
-import com.tenpearls.android.service.response.BaseResponse;
-import com.tenpearls.android.utilities.JavaUtility;
+import android.graphics.Color;
+import android.support.design.widget.Snackbar;
+import android.view.View;
+
+import com.tenpearls.android.R;
+import com.tenpearls.android.interfaces.Controller;
 
 import java.io.IOException;
 import java.util.HashMap;
@@ -26,18 +20,19 @@ import okhttp3.Response;
  * for the Web service that you will use
  * and should be overridden
  */
-public abstract class ServiceProtocol implements Interceptor, TypeAdapterFactory {
+public abstract class ServiceProtocol implements Interceptor {
 
     @Override
-    public Response intercept(Chain chain) throws IOException {
+    public final Response intercept(Chain chain) throws IOException {
 
         Request request = chain.request();
 
         Request.Builder requestBuilder = request.newBuilder()
                 .method(request.method(), request.body());
 
-        if(getHeaders() != null) {
-            for (Map.Entry<String, String> entry : getHeaders().entrySet()) {
+        HashMap<String, String> headers = getHeaders();
+        if(headers != null) {
+            for (Map.Entry<String, String> entry : headers.entrySet()) {
                 requestBuilder = requestBuilder.header(entry.getKey(), entry.getValue());
             }
         }
@@ -46,59 +41,7 @@ public abstract class ServiceProtocol implements Interceptor, TypeAdapterFactory
         return chain.proceed(request);
     }
 
-    @Override
-    public final <T> TypeAdapter<T> create(Gson gson, final TypeToken<T> type) {
 
-        final Class currentClass = JavaUtility.getClassOfTokenType(type);
-        final Boolean isEntity = JavaUtility.getSuperclassOfTokenType(type).equals(getBaseEntityClass())
-                                || JavaUtility.getSuperclassOfTokenType(type).equals(BaseEntity.class)
-                                || JavaUtility.getSuperclassOfTokenType(type).equals(getBaseResponseClass())
-                                || JavaUtility.getSuperclassOfTokenType(type).equals(BaseResponse.class);
-        final Boolean isInput = JavaUtility.getSuperclassOfTokenType(type).equals(getBaseInputClass());
-
-        final TypeAdapter<T> delegate = gson.getDelegateAdapter(this, type);
-        final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
-
-        return new TypeAdapter<T>() {
-
-            public void write(JsonWriter out, T value) throws IOException {
-
-                try {
-                    if(isInput) {
-                        ((BaseInput)value).write(out);
-                        return;
-                    }
-                } catch (Exception e) {
-                    e.printStackTrace();
-                }
-
-                delegate.write(out, value);
-            }
-
-            public T read(JsonReader in) throws IOException {
-
-                JsonElement jsonElement = elementAdapter.read(in);
-
-                try {
-                    if(isEntity) {
-                        WebServiceResponse webServiceResponse = (WebServiceResponse) currentClass.newInstance();
-                         webServiceResponse.loadJson(jsonElement);
-                        return (T) webServiceResponse;
-                    }
-
-                    if(currentClass.equals(String.class)) {
-                        return (T)jsonElement.toString();
-                    }
-
-                } catch (Exception e) {
-                    e.printStackTrace();
-                }
-
-
-                return delegate.fromJsonTree(jsonElement);
-            }
-        }.nullSafe();
-    }
 
     /**
      * Return a {@link HashMap} of all the headers that you need to send
@@ -116,38 +59,6 @@ public abstract class ServiceProtocol implements Interceptor, TypeAdapterFactory
     public abstract String getAPIUrl();
 
     //Parsing information
-
-    /**
-     * Return a {@link Class} of base entity you are using for
-     * parsing data. Should be a subclass of {@link BaseEntity}
-     *
-     * @see BaseEntity
-     */
-
-    protected Class<? extends BaseEntity> getBaseEntityClass() {
-        return BaseEntity.class;
-    }
-
-    /**
-     * Return a {@link Class} of base entity you are using for
-     * parsing data of collection type. Should be a subclass of {@link BaseResponse}
-     *
-     * @see BaseResponse
-     */
-
-    protected Class<? extends BaseResponse> getBaseResponseClass() {
-        return BaseResponse.class;
-    }
-
-    /**
-     * Return a {@link Class} of base input you are using for
-     * creating json for POST Request. Should be a subclass of {@link BaseInput}
-     *
-     * @see BaseInput
-     */
-    protected Class<? extends BaseInput> getBaseInputClass() {
-        return BaseInput.class;
-    }
 
 
     /**
@@ -173,4 +84,125 @@ public abstract class ServiceProtocol implements Interceptor, TypeAdapterFactory
     protected int getStatusCode(retrofit2.Response response) {
         return response.code();
     }
+
+
+    /**
+     * Override this method to have custom rules for authorization <br/>
+     * Default unauthorized code is 401
+     *
+     * @see ServiceCallback#onFailure(String, int)
+     * @see ServiceProtocol#onUnAuthorized(Controller)
+     *
+     */
+
+    protected boolean isAuthorized(int code) {
+        return code != 401;
+    }
+
+
+    /**
+     * Override this method to perform tasks when client is unauthorized to use service
+     *
+     * @return true if you have consumed the event and
+     * don't want service callbacks to be executed. Default is false
+     *
+     * @see ServiceProtocol#isAuthorized(int)
+     */
+    @SuppressWarnings("BooleanMethodIsAlwaysInverted")
+    protected boolean onUnAuthorized(Controller controller) {
+        return false;
+    }
+
+    /**
+     * Override this method to implement custom retry functionality<br/>
+     * By default is shows a snackbar
+     */
+
+    protected void onRetry(ServiceCall serviceCall, ServiceCallback serviceCallback, Controller controller) {
+        showRetrySnackbar(R.string.error_retry_request, serviceCall, serviceCallback, controller);
+    }
+
+    /**
+     * Override this method to implement custom functionality on internet connection error<br/>
+     * By default is shows a snackbar
+     */
+
+    protected void onInternetConnectionError(ServiceCall serviceCall, ServiceCallback serviceCallback, Controller controller) {
+        showRetrySnackbar(R.string.error_internet_connection, serviceCall, serviceCallback, controller);
+    }
+
+    /**
+     * Override this method to provide a custom Connection time out in seconds
+     *
+     * @return time out value in seconds
+     *
+     */
+
+    protected int getConnectionTimeoutInSeconds() {
+        return 10;
+    }
+
+    /**
+     * Override this method to provide a custom read time out in seconds
+     *
+     * @return time out value in seconds
+     *
+     */
+
+    protected int getReadTimeoutInSeconds() {
+        return 10;
+    }
+
+    /**
+     * Override this method to provide a custom write time out in seconds
+     *
+     * @return time out value in seconds
+     *
+     */
+
+    protected int getWriteTimeoutInSeconds() {
+        return 10;
+    }
+
+    protected final void retry (ServiceCall serviceCall, ServiceCallback callback) {
+        callback.refresh();
+        if(serviceCall.isExecuted()) {
+            serviceCall = serviceCall.clone();
+        }
+        serviceCall.enableRetry(true).enqueue(callback);
+    }
+
+    private void showRetrySnackbar(int textResource, final ServiceCall serviceCall, final ServiceCallback callback, Controller controller) {
+
+        if(controller == null) {
+            return;
+        }
+
+        final View view  = controller.getView();
+        if(view == null) {
+            return;
+        }
+
+        final Snackbar snackbar = Snackbar.make(view, textResource, Snackbar.LENGTH_INDEFINITE);
+        snackbar.setActionTextColor(Color.WHITE);
+        snackbar.setAction(R.string.btn_title_retry, new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                retry(serviceCall, callback);
+                snackbar.dismiss();
+            }
+        });
+
+        snackbar.show();
+        controller.setSnackbar(snackbar);
+//        view.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                snackbar.dismiss();
+//                view.setOnClickListener(null);
+//            }
+//        });
+    }
+
 }

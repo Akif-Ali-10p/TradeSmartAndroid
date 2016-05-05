@@ -2,12 +2,12 @@ package com.tenpearls.android.service;
 
 import android.content.Context;
 
-import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
 import com.tenpearls.android.R;
+import com.tenpearls.android.service.converters.ServiceConverterFactory;
+
+import java.util.concurrent.TimeUnit;
 
 import okhttp3.OkHttpClient;
-import retrofit2.GsonConverterFactory;
 import retrofit2.Retrofit;
 
 final class ServiceManager {
@@ -21,32 +21,37 @@ final class ServiceManager {
 
     }
 
-    public static final ServiceManager getInstance() {
-        if(instance == null) {
+    public static ServiceManager getInstance() {
+        if (instance == null) {
             instance = new ServiceManager();
         }
 
         return instance;
     }
 
-    public final void initialize (ServiceProtocol serviceProtocol, Context context) throws Exception {
+    public final void initialize(ServiceProtocol serviceProtocol, Context context) {
 
         this.context = context;
         this.serviceProtocol = serviceProtocol;
         validateServiceProtocol();
 
-        if(retrofit != null) {
+        if (retrofit != null) {
             return;
         }
 
+
         OkHttpClient okHttpClient = new OkHttpClient();
-        okHttpClient = okHttpClient.newBuilder().addNetworkInterceptor(serviceProtocol).build();
-        Gson gson = new GsonBuilder().registerTypeAdapterFactory(serviceProtocol).create();
+        okHttpClient = okHttpClient.newBuilder()
+                .addNetworkInterceptor(serviceProtocol)
+                .connectTimeout(serviceProtocol.getConnectionTimeoutInSeconds(), TimeUnit.SECONDS)
+                .readTimeout(serviceProtocol.getReadTimeoutInSeconds(), TimeUnit.SECONDS)
+                .writeTimeout(serviceProtocol.getWriteTimeoutInSeconds(), TimeUnit.SECONDS).build();
+
         retrofit = new Retrofit.Builder()
                 .baseUrl(serviceProtocol.getAPIUrl())
                 .client(okHttpClient)
                 .addCallAdapterFactory(new ServiceCallAdapterFactory())
-                .addConverterFactory(GsonConverterFactory.create(gson))
+                .addConverterFactory(new ServiceConverterFactory())
                 .build();
     }
 
@@ -68,8 +73,8 @@ final class ServiceManager {
     }
 
 
-    private void validateServiceProtocol() throws Exception {
-        if(serviceProtocol != null) {
+    private void validateServiceProtocol() {
+        if (serviceProtocol != null) {
             return;
         }
         throw new IllegalArgumentException(context.getString(R.string.error_message_service_protocol));
