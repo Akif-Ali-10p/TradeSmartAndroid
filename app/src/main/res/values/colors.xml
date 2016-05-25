@@ -1,8 +1,80 @@
-<?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#3F51B5</color>
-    <color name="colorPrimaryDark">#303F9F</color>
-    <color name="colorAccent">#FF4081</color>
-    <color name="white">#FFFFFF</color>
+
     <color name="title">#27aae0</color>
+
+    <!-- App Colors -->
+    <color name="app_primary_color">#386487</color>
+    <color name="app_color_accent">@color/app_primary_color</color>
+
+    <!-- Common Colors -->
+    <color name="white">@android:color/white</color>
+    <color name="black">@android:color/black</color>
+
+    <!-- Toolbar -->
+    <color name="toolbar_bg">#4DFFFFFF</color>
+    <color name="toolbar_stroke">#84969A</color>
+
+    <!-- Navigation View -->
+    <color name="navigation_view_bg">#889fb4</color>
+    <!--<color name="navigation_txt">#2b274a</color>-->
+    <color name="navigation_txt">@android:color/white</color>
+
+    <!-- List Separator -->
+    <color name="divider_list_bg">#5975728C</color>
+
+    <color name="divider_list_bottom_bg">#73CFCCE5</color>
+
+    <color name="divider_nav_list_top_bg">#5a7791</color>
+    <color name="divider_nav_list_bottom_bg">#afc9d9</color>
+
+    <!-- Heading, SubHeading -->
+    <color name="txt_subheading">#2F4A5E</color>
+
+    <!-- Question Intro -->
+    <color name="txt_questionIntro">#386487</color>
+
+    <!-- Button -->
+    <color name="btn_primary_blue">@color/app_primary_color</color>
+    <color name="btn_secondary_green">#5EBA35</color>
+
+    <color name="btn_wrong_answer">#E52D0E</color>
+    <color name="btn_correct_answer">#5EBA35</color>
+
+    <color name="md__transparent">@android:color/transparent</color>
+    <color name="grey">#7e7e7e</color>
+    <color name="grey_light">#e0e0e0</color>
+
+    <color name="quiz_label">#00fff9</color>
+
+
+
+    <!-- Quiz Listing Screen -->
+    <color name="btn_quiz_bg_color">#2a0053</color>
+    <color name="btn_quiz_text_color">#00c684</color>
+    <color name="txt_view_quiz">#fff301</color>
+
+    <!-- Quiz Home Bottom Bar -->
+    <color name="quiz_home_bottom_bar_color">#30386487</color>
+
+    <color name="input_field_bg_color">#60ADADAD</color>
+
+    <color name="btn_result_play_again">#5eba35</color>
+    <color name="btn_result_share">#386487</color>
+
+    <color name="timer_color_initial">#85B336</color>
+    <color name="timer_color_above_40">#DCC042</color>
+    <color name="timer_color_above_60">#D07A3D</color>
+    <color name="timer_color_above_80">#CA3C3B</color>
+    <color name="timer_color">#2B5074</color>
+
+    <color name="login_edit_text_bg_color">#60ADADAD</color>
+    <color name="achievement_popup_color">#a4a0b9</color>
+
+    <!-- Leaderboard -->
+    <color name="page_indicator_selected">#f6550f</color>
+    <color name="page_indicator_unselected">#5d7788</color>
+
+    <color name="item_leaderboard_self_bg">#dce5ec</color>
+    <color name="item_leaderboard_vertical_divider">#bdcada</color>
+
 </resources>

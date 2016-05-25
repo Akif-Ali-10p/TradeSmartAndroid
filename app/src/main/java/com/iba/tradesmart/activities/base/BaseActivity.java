@@ -12,4 +12,5 @@ public abstract class BaseActivity extends com.tenpearls.android.activities.Base
         return new ServiceFactory();
     }
 
+
 }

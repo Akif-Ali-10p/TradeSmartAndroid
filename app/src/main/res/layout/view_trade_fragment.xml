@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginStart="@dimen/margin_20dp"
+    android:layout_marginEnd="@dimen/margin_20dp">
+
+    <com.tenpearls.android.components.TextView
+        android:id="@+id/txtHeading"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/margin_40dp"
+        android:text="Symbols:"
+        android:textColor="@color/white"/>
+
+    <Spinner
+        android:id="@+id/spinner"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/txtHeading"
+        android:layout_marginTop="@dimen/element_spacing"
+        android:prompt="@string/spinner_title"
+        android:textColor="@color/white"/>
+
+    <RadioGroup
+        android:id="@+id/rgTrade"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/element_spacing"
+        android:layout_below="@+id/spinner">
+
+        <RadioButton
+            android:id="@+id/rbBuy"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Buy"
+            android:textColor="@color/white"/>
+
+        <RadioButton
+            android:id="@+id/rbSell"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Sell"
+            android:textColor="@color/white"/>
+
+    </RadioGroup>
+
+    <com.tenpearls.android.components.EditText
+        android:id="@+id/etQuantity"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/rgTrade"
+        android:layout_marginTop="@dimen/element_spacing"
+        android:inputType="number"
+        android:hint="Enter Quantity"
+        android:textColor="@color/white"/>
+
+    <com.tenpearls.android.components.Button
+        android:id="@+id/btnProceed"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/etQuantity"
+        android:layout_marginTop="@dimen/margin_20dp"
+        android:layout_centerHorizontal="true"
+        android:text="Make Trade"/>
+
+</RelativeLayout>

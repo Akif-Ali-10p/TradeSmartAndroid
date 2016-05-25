@@ -10,6 +10,8 @@ public class Application extends android.app.Application {
 
     @Override
     public void onCreate () {
+
+        // TODO Auto-generated method stub
         super.onCreate ();
         applicationInstance = this;
 
@@ -22,10 +24,13 @@ public class Application extends android.app.Application {
 
     @Override
     public void onTerminate () {
+
+        // TODO Auto-generated method stub
         super.onTerminate();
     }
 
     public static Application getInstance () {
+
         return applicationInstance;
     }
 

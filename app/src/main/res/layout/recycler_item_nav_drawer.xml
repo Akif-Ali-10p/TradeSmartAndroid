@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:minHeight="?android:attr/listPreferredItemHeightSmall">
+
+    <com.tenpearls.android.components.ImageView
+        android:id="@+id/imgNavItem"
+        android:layout_width="@dimen/img_nav_drawer_item_size"
+        android:layout_height="@dimen/img_nav_drawer_item_size"
+        android:layout_centerVertical="true"
+        android:layout_marginStart="@dimen/content_padding"
+        android:src="@drawable/nav_drawer_news" />
+
+    <com.tenpearls.android.components.TextView
+        android:id="@+id/txtNavItem"
+        style="@style/txtNavDrawerItem"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:layout_marginEnd="@dimen/content_padding"
+        android:layout_marginStart="@dimen/txt_nav_drawer_item_margin_start"
+        android:layout_toEndOf="@+id/imgNavItem"
+        tools:text="@string/app_name" />
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:src="@drawable/divider_item_recycler_nav_drawer"
+        android:layout_alignParentBottom="true"/>
+
+</RelativeLayout>

@@ -1,12 +1,6 @@
 <resources>
     <string name="app_name">Trade Smart</string>
 
-    <string name="navigation_drawer_open">Open navigation drawer</string>
-    <string name="navigation_drawer_close">Close navigation drawer</string>
-
-    <string name="action_settings">Settings</string>
-    <string name="title_activity_feed">FeedActivity</string>
-
     <string name="facebook_app_id">1224552974223746</string>
 
     <!-- Application Fonts -->
@@ -14,5 +8,52 @@
     <string name="font_bold">fonts/NexaBold.otf</string>
 
     <string name="spinner_title">Symbols</string>
+
+    <!-- Navigation Drawer Screen-->
+    <string-array name="list_nav_drawer">
+        <item>nav_drawer_news</item>
+        <item>nav_drawer_trade</item>
+        <item>nav_drawer_transactions</item>
+        <item>nav_drawer_logout</item>
+    </string-array>
+
+    <!-- Make Trade Screen-->
+    <string-array name="list_symbols">
+        <item>AHCL</item>
+        <item>ACPL</item>
+        <item>BYCO</item>
+        <item>COLG</item>
+        <item>DAWH</item>
+        <item>DCL</item>
+        <item>DYNO</item>
+        <item>ENGRO</item>
+        <item>EXIDE</item>
+        <item>FCCL</item>
+        <item>FFBL</item>
+        <item>GLAXO</item>
+        <item>HASCOL</item>
+        <item>HBL</item>
+        <item>ICI</item>
+        <item>KAPCO</item>
+        <item>KEL</item>
+        <item>NETSOL</item>
+        <item>OGDC</item>
+        <item>PSO</item>
+        <item>SSGC</item>
+        <item>UBL</item>
+    </string-array>
+
+    <string name="nav_drawer_open">Open navigation drawer</string>
+    <string name="nav_drawer_close">Close navigation drawer</string>
+    <string name="nav_drawer_news">News</string>
+    <string name="nav_drawer_trade">Make Trade</string>
+    <string name="nav_drawer_transactions">Transactions</string>
+    <string name="nav_drawer_logout">Log Out</string>
+
+    <string name="string_drawable_res">drawable</string>
+    <string name="string_string_res">string</string>
+
+    <string name="string_http">http</string>
+    <string name="string_https">https</string>
 
 </resources>

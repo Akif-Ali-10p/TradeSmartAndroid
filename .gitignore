@@ -1,8 +1,8 @@
 *.iml
 .gradle
 /local.properties
-/.idea/
-*.DS_Store
-Thumbs.db
+/.idea/workspace.xml
+/.idea/libraries
+.DS_Store
 /build
 /captures

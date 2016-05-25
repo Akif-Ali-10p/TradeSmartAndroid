@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+    <item>
+        <shape>
+            <solid android:color="@color/divider_nav_list_top_bg" />
+            <size android:height="@dimen/divider_nav_drawer_list_height"/>
+        </shape>
+    </item>
+    <item android:top="@dimen/divider_nav_drawer_list_height">
+        <shape>
+            <solid android:color="@color/divider_nav_list_bottom_bg" />
+            <size android:height="@dimen/divider_nav_drawer_list_height"/>
+        </shape>
+    </item>
+</layer-list>

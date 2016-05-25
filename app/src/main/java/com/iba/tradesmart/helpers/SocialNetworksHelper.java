@@ -16,6 +16,7 @@ import com.google.android.gms.common.ConnectionResult;
 import com.google.android.gms.common.api.GoogleApiClient;
 import com.google.android.gms.common.api.ResultCallback;
 import com.google.android.gms.common.api.Status;
+import com.iba.tradesmart.R;
 
 import java.util.Collection;
 
@@ -58,9 +59,9 @@ public class SocialNetworksHelper {
 
     /****FILL THIS WITH YOUR INFORMATION*********/
     //This is the public api key of our application
-    public static final String API_KEY = "771v1nvlyeo5pa";
+    public static final String API_KEY = "75e6k3l06dwmse";
     //This is the private api key of our application
-    public static final String SECRET_KEY = "UrRJ8McyOf2hcZgw";
+    public static final String SECRET_KEY = "BENqQAnGHCBwEitB";
     //This is any string we want to use. This will be used for avoid CSRF attacks. You can generate one here: http://strongpasswordgenerator.com/
     public static final String STATE = "E3ZYKC1T6H2yP4z";
     /*********************************************/

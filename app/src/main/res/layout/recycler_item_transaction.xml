@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:background="@drawable/topbar"
+    android:layout_height="80dp">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:layout_marginTop="3dp">
+
+        <com.tenpearls.android.components.TextView
+            android:id="@+id/txtDate"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin_10dp"
+            android:layout_alignParentEnd="true"
+            android:paddingStart="8dp"
+            android:paddingEnd="8dp"
+            android:textColor="@color/white"
+            android:textSize="15sp"
+            app:font_path_from_assets="@string/font_regular"/>
+
+        <com.tenpearls.android.components.TextView
+            android:id="@+id/txtStock"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin_10dp"
+            android:layout_toStartOf="@+id/txtDate"
+            android:paddingStart="8dp"
+            android:paddingEnd="8dp"
+            android:textColor="@color/white"
+            android:textSize="15sp"
+            app:font_path_from_assets="@string/font_regular"/>
+
+        <com.tenpearls.android.components.TextView
+            android:id="@+id/txtType"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin_10dp"
+            android:layout_alignParentEnd="true"
+            android:paddingStart="8dp"
+            android:paddingEnd="8dp"
+            android:textColor="@color/white"
+            android:layout_below="@id/txtDate"
+            android:textSize="15sp"
+            app:font_path_from_assets="@string/font_regular"/>
+
+        <com.tenpearls.android.components.TextView
+            android:id="@+id/txtQuantity"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin_10dp"
+            android:layout_toStartOf="@+id/txtType"
+            android:paddingStart="8dp"
+            android:paddingEnd="8dp"
+            android:layout_below="@id/txtStock"
+            android:textColor="@color/white"
+            android:textSize="15sp"
+            app:font_path_from_assets="@string/font_regular"/>
+
+    </RelativeLayout>
+</RelativeLayout>

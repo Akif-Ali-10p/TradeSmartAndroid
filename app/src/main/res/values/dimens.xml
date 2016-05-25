@@ -1,9 +1,126 @@
 <resources>
-    <!-- Default screen margins, per the Android Design guidelines. -->
-    <dimen name="nav_header_vertical_spacing">16dp</dimen>
-    <dimen name="nav_header_height">160dp</dimen>
-    <!-- Default screen margins, per the Android Design guidelines. -->
-    <dimen name="activity_horizontal_margin">16dp</dimen>
-    <dimen name="activity_vertical_margin">16dp</dimen>
+
+    <dimen name="question_textsize">22sp</dimen>
+    <dimen name="question_data_page_paddingbottom">28dp</dimen>
+    <dimen name="answer_textsize">18sp</dimen>
+    <dimen name="answer_btnHeight">40dp</dimen>
+    <dimen name="question_image_width">240dp</dimen>
+    <dimen name="question_image_height">150dp</dimen>
+    <dimen name="result_score_bg_height">150dp</dimen>
+    <dimen name="splash_logo_margin_top">0dp</dimen>
+    <dimen name="splash_text_margin_top">35dp</dimen>
+    <dimen name="spash_fb_login_button_top_margin">38dp</dimen>
+
+    <!-- App Specific Dimensions -->
+    <!-- Android standard dimensions for spacing and padding between elements -->
+    <dimen name="element_spacing">8dp</dimen>
+    <dimen name="content_padding">16dp</dimen>
+
+    <!-- Dimensions for all font sizes -->
+    <dimen name="text_size_small">14sp</dimen>
+    <dimen name="text_size_medium">18sp</dimen>
+    <dimen name="text_size_toolbar_score">20sp</dimen>
+    <dimen name="text_size_navigation_menu">20sp</dimen>
+    <dimen name="text_size_large">24sp</dimen>
+    <dimen name="text_size_question_intro_heading">33sp</dimen>
+    <dimen name="text_size_result_message">20sp</dimen>
+    <dimen name="text_size_xlarge">77sp</dimen>
+    <dimen name="text_size_result_score">70sp</dimen>
+    <dimen name="text_size_question">25sp</dimen>
+    <dimen name="text_size_question_option">16sp</dimen>
+
+    <!-- Custom Margins -->
+    <dimen name="view_1dp">1dp</dimen>
+    <dimen name="margin_2dp">2dp</dimen>
+    <dimen name="margin_5dp">5dp</dimen>
+    <dimen name="margin_10dp">10dp</dimen>
+    <dimen name="margin_15dp">15dp</dimen>
+    <dimen name="margin_20dp">20dp</dimen>
+    <dimen name="margin_27dp">27dp</dimen>
+    <dimen name="margin_30dp">30dp</dimen>
+    <dimen name="margin_32dp">32dp</dimen>
+    <dimen name="margin_35dp">35dp</dimen>
+    <dimen name="margin_40dp">40dp</dimen>
+    <dimen name="margin_50dp">50dp</dimen>
+    <dimen name="margin_52dp">52dp</dimen>
+    <dimen name="margin_60dp">60dp</dimen>
+    <dimen name="margin_80dp">80dp</dimen>
+
+    <!-- List Dividers -->
+    <dimen name="divider_height">1dp</dimen>
+
+    <dimen name="nav_drawer_img_size">24dp</dimen>
+    <dimen name="separator_height">0.5dp</dimen>
+    <dimen name="border_width">0.5dp</dimen>
+    <dimen name="separator_width_bottom_bar">2.5dp</dimen>
     <dimen name="fab_margin">16dp</dimen>
+
+    <!-- Button Radius -->
+    <dimen name="btn_primary_radius">0dp</dimen>
+
+    <!-- Screen Specific Dimension -->
+    <!-- Quiz Listing Screen -->
+    <!-- Toolbar -->
+    <dimen name="toolbar_stroke">1dp</dimen>
+    <dimen name="toolbar_stroke_top_padding">55dp</dimen>
+
+    <!-- Navigation Drawer Header -->
+    <dimen name="nav_header_vertical_spacing">16dp</dimen>
+    <dimen name="nav_header_height">250dp</dimen>
+
+    <!-- Navigation View -->
+    <dimen name="txt_nav_drawer_item_margin_start">32dp</dimen>
+    <dimen name="img_nav_drawer_item_size">24dp</dimen>
+    <dimen name="divider_nav_drawer_list_height">1dp</dimen>
+
+    <!-- Profile -->
+    <dimen name="img_user_profile_size">125dp</dimen>
+    <dimen name="img_user_profile_border_radius">2dp</dimen>
+    <dimen name="img_user_profile_border_width">1dp</dimen>
+    <dimen name="img_user_profile_border_padding">1dp</dimen>
+    <dimen name="img_user_profile_arrow_size">14dp</dimen>
+
+    <!-- Login -->
+    <dimen name="width_edit_text_login">240dp</dimen>
+    <dimen name="edit_text_padding">3dp</dimen>
+    <dimen name="height_edit_text_login">35dp</dimen>
+
+    <!-- Achievement Badge-->
+    <dimen name="width_achievement_badge_layout">280dp</dimen>
+    <dimen name="height_achievement_badge_layout">380dp</dimen>
+    <dimen name="width_achievement_badge">120dp</dimen>
+    <dimen name="height_achievement_badge">120dp</dimen>
+
+    <dimen name="life_attempts_spacing">3dp</dimen>
+
+    <dimen name="timer_progress_bar_width">19dp</dimen>
+
+    <dimen name="width_30dp">30dp</dimen>
+    <dimen name="width_40dp">40dp</dimen>
+    <dimen name="width_50dp">50dp</dimen>
+    <dimen name="width_60dp">60dp</dimen>
+    <dimen name="width_100dp">100dp</dimen>
+    <dimen name="height_50dp">50dp</dimen>
+    <dimen name="height_60dp">60dp</dimen>
+
+    <!--Leaderboard -->
+    <dimen name="item_leaderboard_pic_size">60dp</dimen>
+    <dimen name="item_leaderboard_card_radius">0dp</dimen>
+    <dimen name="item_leaderboard_card_elevation">1dp</dimen>
+
+    <dimen name="btn_wrong_border">5dp</dimen>
+    <dimen name="timer_bg_width">4dp</dimen>
+    <dimen name="width_52dp">52dp</dimen>
+    <dimen name="height_52dp">52dp</dimen>
+    <dimen name="width_150dp">150dp</dimen>
+    <dimen name="width_160dp">160dp</dimen>
+    <dimen name="height_150dp">150dp</dimen>
+    <dimen name="height_160dp">160dp</dimen>
+    <dimen name="width_38dp">38dp</dimen>
+    <dimen name="height_38dp">38dp</dimen>
+    <dimen name="margin_37dp">37dp</dimen>
+    <dimen name="width_240dp">240dp</dimen>
+
+    <dimen name="margin_minus_10dp">-10dp</dimen>
+
 </resources>

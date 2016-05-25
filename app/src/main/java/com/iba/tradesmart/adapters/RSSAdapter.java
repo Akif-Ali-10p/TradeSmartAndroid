@@ -23,12 +23,12 @@ public class RSSAdapter extends RecyclerView.Adapter<RSSAdapter.CustomViewHolder
 
     public RSSAdapter(Context context, List<FeedItem> feedItemList) {
         this.feedItemList = feedItemList;
-        this.mContext = context;
+        mContext = context;
     }
 
     @Override
     public CustomViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.list_row, null);
+        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.recycler_item_news, null);
 
         CustomViewHolder viewHolder = new CustomViewHolder(view);
         return viewHolder;
@@ -46,7 +46,6 @@ public class RSSAdapter extends RecyclerView.Adapter<RSSAdapter.CustomViewHolder
                 int position = holder.getPosition();
 
                 FeedItem feedItem = feedItemList.get(position);
-//                Toast.makeText(mContext, feedItem.getUrl(), Toast.LENGTH_SHORT).show();
 
                 Intent i = new Intent(Intent.ACTION_VIEW);
                 i.setData(Uri.parse(feedItem.getUrl()));
@@ -70,7 +69,7 @@ public class RSSAdapter extends RecyclerView.Adapter<RSSAdapter.CustomViewHolder
 
         public CustomViewHolder(View view) {
             super(view);
-            this.textView = (TextView) view.findViewById(R.id.title);
+            textView = (TextView) view.findViewById(R.id.title);
         }
     }
 }

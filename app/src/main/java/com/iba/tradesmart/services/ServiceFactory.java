@@ -1,5 +1,7 @@
 package com.iba.tradesmart.services;
 
+import com.iba.tradesmart.services.interfaces.TradeService;
+
 /**
  * Created on 08/02/2016.
  */
@@ -14,7 +16,7 @@ public class ServiceFactory extends com.tenpearls.android.service.ServiceFactory
     }
 
     @Override
-    public ServiceProtocol getServiceProtocol() {
+    public com.tenpearls.android.service.ServiceProtocol getServiceProtocol() {
         return new ServiceProtocol();
     }
 
